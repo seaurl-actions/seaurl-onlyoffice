@@ -21,8 +21,13 @@ jobs:
       # Step 2: Set up Kubernetes (configure kubeconfig)
       - name: Set up Kubernetes
         uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest'
+#        with:
+#          version: 'latest'
+
+      - name: Configure kubectl
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
 
       # Step 3: Install Helm
       - name: Install Helm
@@ -32,7 +37,9 @@ jobs:
 
       # Step 4: Add OnlyOffice Helm repo (if required)
       - name: Add OnlyOffice Helm repo
-        run: helm repo add onlyoffice https://your-onlyoffice-helm-repo-url
+        run: |
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add onlyoffice https://download.onlyoffice.com/charts/stable
 
       # Step 5: Update Helm repos
       - name: Update Helm repos
@@ -41,7 +48,5 @@ jobs:
       # Step 6: Install OnlyOffice using Helm
       - name: Install OnlyOffice
         run: |
-          helm upgrade --install onlyoffice onlyoffice/onlyoffice \
-            --namespace your-namespace \
-            --create-namespace \
-            --set someConfigKey=someValue
+          kubectl get namespace onlyoffice || kubectl create namespace onlyoffice
+          helm install onlyoffice onlyoffice/docs -f helm/onlyoffice/values.yaml --namespace onlyoffice
