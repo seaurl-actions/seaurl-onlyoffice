@@ -1,0 +1,38 @@
+connections:
+#  amqpExistingSecret: rabbitmq
+  amqpHost: test-rabbitmq-headless.rabbit.svc.cluster.local
+  amqpPassword: "seaurl0704"
+  amqpPort: "5672"
+  amqpProto: amqp
+#  amqpSecretKeyName: rabbitmq-password
+  amqpType: rabbitmq
+  amqpUser: user
+  amqpVhost: /
+
+#  dbExistingSecret: postgresql
+  dbHost: awbeci01.mysql.rds.aliyuncs.com
+  dbName: onlyoffice
+# Database user password. If set to, it takes priority over the connections.dbExistingSecret 属性
+  dbPassword: "awbeci"
+  dbPort: "3306"
+#  dbSecretKeyName: postgres-password
+  dbType: mysql
+  dbUser: awbeci
+
+#  redisClusterNodes: []
+  redisConnectorName: redis
+  redisDBNum: "1"
+#  redisExistingSecret: redis
+  redisHost: r-bp18e3ehy1e8lwd972pd.redis.rds.aliyuncs.com
+#  redisNoPass: false
+  redisPassword: "Seaurl0704"
+  redisPort: "6379"
+#  redisSecretKeyName: redis-password
+#  redisSentinelGroupName: mymaster
+  redisUser: default
+persistence:
+  size: 8Gi
+  storageClass: alibabacloud-cnfs-nas
+service:
+  port: 8888
+  type: NodePort
