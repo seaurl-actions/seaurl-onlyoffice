@@ -45,6 +45,10 @@ jobs:
       - name: Update Helm repos
         run: helm repo update
 
+      - name: Uninstall existing OnlyOffice release (if exists)
+        run: |
+          helm uninstall onlyoffice --namespace onlyoffice || true
+
       # Step 6: Install OnlyOffice using Helm
       - name: Install OnlyOffice
         run: |
