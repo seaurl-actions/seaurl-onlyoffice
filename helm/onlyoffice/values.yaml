@@ -36,3 +36,6 @@ persistence:
 service:
   port: 8888
   type: NodePort
+upgrade:
+  job:
+    enabled: false
