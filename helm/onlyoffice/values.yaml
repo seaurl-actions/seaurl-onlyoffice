@@ -39,3 +39,74 @@ service:
 #upgrade:
 #  job:
 #    enabled: false
+clearCache:
+  job:
+    image:
+      pullPolicy: IfNotPresent
+      repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-utils
+      tag: 8.1.1-3
+
+converter:
+  image:
+    pullPolicy: IfNotPresent
+    repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-converter-de
+    tag: 8.1.1-3
+
+delete:
+  job:
+    image:
+      pullPolicy: IfNotPresent
+      repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-utils
+      tag: 8.1.1-3
+
+docservice:
+  image:
+    pullPolicy: IfNotPresent
+    repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-docservice-de
+    tag: 8.1.1-3
+
+#example:
+#  image:
+#    pullPolicy: IfNotPresent
+#    repository: onlyoffice/docs-example
+#    tag: 8.1.1-1
+
+grafanaDashboard:
+  job:
+    image:
+      pullPolicy: IfNotPresent
+      repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-utils
+      tag: 8.1.1-3
+
+install:
+  job:
+    image:
+      pullPolicy: IfNotPresent
+      repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-utils
+      tag: 8.1.1-3
+
+proxy:
+  image:
+    pullPolicy: IfNotPresent
+    repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-proxy-de
+    tag: 8.1.1-3
+
+rollback:
+  job:
+    image:
+      pullPolicy: IfNotPresent
+      repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-utils
+      tag: 8.1.1-3
+
+tests:
+  image:
+    pullPolicy: IfNotPresent
+    repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-utils
+    tag: 8.1.1-3
+
+upgrade:
+  job:
+    image:
+      pullPolicy: IfNotPresent
+      repository: registry.cn-hangzhou.aliyuncs.com/com-seaurl/onlyoffice-docs-utils
+      tag: 8.1.1-3
